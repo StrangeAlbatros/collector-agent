@@ -1,22 +1,30 @@
 ############# Working mode ###########
 mode: collector
+
 ############ Log ##########
+
 # the default value for log.level is information
 # log.level: DEBUG
 # the default value for log.path is /var/log/collector-agent
 # log.path: /var/log/collector-agent
+
 # the default value for log.nam is collector-agent 
 log.name: collector-agent 
 
 ############     remote server    ############
 server:
-  host: http://127.0.0.1
+  host: https://127.0.0.1
   port: 5602
   # add the extension url if you nedd
-  url: /collector/add/data
-  verify: False
+  # url: /collector/add/data
+  # by default it's False
+  # verify: False
+  # cert: my.crt
+
 ###########  supervision #############
+
 # the default value for pakage supervision is true
-supervision.packages: true
+# supervision.packages: true
+
 # the default value for service supervision is true
-supervision.services: true
+#supervision.services: true

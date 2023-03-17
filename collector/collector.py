@@ -2,7 +2,12 @@
 
 """ Collector """
 
-import netifaces
+NETWORK_USE = True
+try:
+    import netifaces
+except ImportError:
+    NETWORK_USE = False
+    print('Warning: netifaces not found, network information will not be collected')
 
 import platform
 import sys
@@ -44,7 +49,10 @@ class Collector:
             'architecture': platform.machine(),
             'hostname': platform.node(),
         }
-        self.get_interfaces()
+        if NETWORK_USE:
+            self.get_interfaces()
+        else:
+            self.informations['network'] = {}
 
     def add_information(self, key, value):
         """ add information """
